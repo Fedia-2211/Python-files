@@ -1,7 +1,0 @@
-mars
-Manuka
-
-Sahran
-Devops
-Hello
-Ansible
