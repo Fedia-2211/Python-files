@@ -1,0 +1,17 @@
+aws-tooplate-deployment/
+│
+├── deploy.py                 # Main deployment script
+├── cleanup.py                # Resource cleanup script
+├── requirements.txt          # Python dependencies
+├── README.md                 # This file
+├── .gitignore               # Git ignore file
+│
+├── screenshots/             # Screenshots directory (create this)
+│   ├── deployment-success.png
+│   ├── ec2-instance.png
+│   ├── load-balancer.png
+│   ├── website-live.png
+│   └── security-groups.png
+│
+└── .pem files/              # Key pairs (gitignored)
+    └── moso-interior-key.pem

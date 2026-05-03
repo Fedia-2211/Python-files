@@ -1,0 +1,73 @@
+======================================================================
+🧹 AWS RESOURCE CLEANUP SCRIPT
+======================================================================
+Template Name: toolplate-website-template
+Region: us-east-1
+======================================================================
+
+⚠️  WARNING: This will delete all resources created by the setup script!
+Are you sure you want to continue? (yes/no): yes
+
+📌 Step 1: Deleting Application Load Balancer...
+  Found ALB: toolplate-website-template-alb (arn:aws:elasticloadbalancing:us-east-1:176899553634:loadbalancer/app/toolplate-website-template-alb/821e4d3f64d154d1)
+  Deleting listener: arn:aws:elasticloadbalancing:us-east-1:176899553634:listener/app/toolplate-website-template-alb/821e4d3f64d154d1/536582a27704eef0
+  Deleting ALB: toolplate-website-template-alb
+  ✅ ALB deleted successfully
+  Waiting for ALB to be deleted...
+
+📌 Step 2: Deleting Target Group...
+  Found Target Group: toolplate-website-template-tg (arn:aws:elasticloadbalancing:us-east-1:176899553634:targetgroup/toolplate-website-template-tg/251ac5f8ff2c0d59)
+  Deregistering targets: [{'Id': 'i-0f8cb73a8ae0b90a4'}]
+  Deleting Target Group: toolplate-website-template-tg
+  ✅ Target Group deleted successfully
+
+📌 Step 3: Terminating EC2 instances...
+  Found Instance: i-0f8cb73a8ae0b90a4 - [{'Key': 'Template', 'Value': 'toolplate-website-template'}, {'Key': 'Name', 'Value': 'toolplate-website-template-ec2'}]
+  Terminating instances: ['i-0f8cb73a8ae0b90a4']
+  ✅ Instances terminated successfully
+  Waiting for instances to terminate...
+  ✅ All instances terminated
+
+📌 Step 4: Deleting security groups...
+  Deleting EC2 security group: toolplate-website-template-sg
+  ✅ Security group 'toolplate-website-template-sg' (sg-01f4e3f670729cf87) deleted successfully
+
+  Deleting ALB security group: toolplate-website-template-alb-sg
+  ✅ Security group 'toolplate-website-template-alb-sg' (sg-0e391f818986171de) deleted successfully
+
+📌 Step 5: Deleting key pair...
+  ✅ Key pair 'toolplate-website-template-key' deleted successfully
+  ✅ Local key file 'toolplate-website-template-key.pem' deleted
+
+📌 Step 6: Checking for leftover resources...
+
+  Checking for any remaining instances...
+
+  Checking for orphaned network interfaces...
+
+======================================================================
+✅ CLEANUP COMPLETED SUCCESSFULLY!
+======================================================================
+The following resources have been deleted:
+  • Key Pair: toolplate-website-template-key
+  • EC2 Security Group: toolplate-website-template-sg
+  • ALB Security Group: toolplate-website-template-alb-sg
+  • EC2 Instance(s): toolplate-website-template-ec2*
+  • Load Balancer: toolplate-website-template-alb
+  • Target Group: toolplate-website-template-tg
+======================================================================
+
+📋 Verifying cleanup (optional)...
+Would you like to verify the cleanup? (yes/no): yes
+
+======================================================================
+VERIFICATION RESULTS
+======================================================================
+✅ Key pair deleted
+✅ Security group 'toolplate-website-template-sg' deleted
+✅ Security group 'toolplate-website-template-alb-sg' deleted
+✅ All instances terminated
+✅ ALB deleted
+======================================================================
+
+🎉 Cleanup script finished!

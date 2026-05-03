@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# AWS keys
+*.pem
+
+# Logs
+*.log
